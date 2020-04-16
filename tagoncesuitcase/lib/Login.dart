@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
 import 'package:tagoncesuitcase/modele/firebase_service.dart';
 
 class LoginForm extends StatelessWidget {
@@ -49,6 +50,7 @@ String pwd;
             child: Text("Login"),
             onPressed: () {
               firebase_service().signIn(mail, pwd);
+              versAccueil(context);
             },
           ),
         ],

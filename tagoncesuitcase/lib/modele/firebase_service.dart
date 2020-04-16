@@ -26,7 +26,7 @@ class firebase_service{
 
   Future<FirebaseUser> createAccount(
     String mail, String pwd, String name) async {
-    auth_instance.createUserWithEmailAndPassword(email: mail, password: pwd);
+    await auth_instance.createUserWithEmailAndPassword(email: mail, password: pwd);
 
     String uid = myID().toString();
     //Créer user for BDD

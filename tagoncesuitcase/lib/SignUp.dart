@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
 import 'package:tagoncesuitcase/modele/firebase_service.dart';
 
 class SignupForm extends StatelessWidget {
@@ -24,7 +25,7 @@ class SignupForm extends StatelessWidget {
               border: OutlineInputBorder(),
             ),
             onChanged: (String value){
-
+              mail=value;
             },
           ),
           const SizedBox(height: 10.0),
@@ -43,6 +44,7 @@ class SignupForm extends StatelessWidget {
               border: OutlineInputBorder(),
             ),
             onChanged: (String value){
+              pwd=value;
               
             },
           ),
@@ -57,6 +59,7 @@ class SignupForm extends StatelessWidget {
             child: Text("Signup"),
             onPressed: () {
               firebase_service().createAccount(mail, pwd, name);
+              versAccueil(context);
             },
           ),
         ],

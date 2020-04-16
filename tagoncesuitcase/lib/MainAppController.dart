@@ -26,7 +26,7 @@ class _MainAppControllerState extends State<MainAppController> {
         body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('airport.jpg'),
+          image: AssetImage('pictures/airport.jpg'),
           fit: BoxFit.cover,
         ),
       ),
