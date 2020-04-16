@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tagoncesuitcase/modele/firebase_service.dart';
 
 class SignupForm extends StatelessWidget {
-  const SignupForm({
-    Key key,
-  }) : super(key: key);
+  String mail;
+  String pwd;
+  String name;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,9 @@ class SignupForm extends StatelessWidget {
               hintText: "Enter email",
               border: OutlineInputBorder(),
             ),
+            onChanged: (String value){
+
+            },
           ),
           const SizedBox(height: 10.0),
           TextField(
@@ -38,6 +42,9 @@ class SignupForm extends StatelessWidget {
               hintText: "Confirm password",
               border: OutlineInputBorder(),
             ),
+            onChanged: (String value){
+              
+            },
           ),
           const SizedBox(height: 10.0),
           RaisedButton(
@@ -48,7 +55,9 @@ class SignupForm extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: Text("Signup"),
-            onPressed: () {},
+            onPressed: () {
+              firebase_service().createAccount(mail, pwd, name);
+            },
           ),
         ],
       ),

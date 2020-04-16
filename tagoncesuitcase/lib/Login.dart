@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tagoncesuitcase/modele/firebase_service.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({
-    Key key,
-  }) : super(key: key);
+
+String mail;
+String pwd;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,9 @@ class LoginForm extends StatelessWidget {
               hintText: "Enter email",
               border: OutlineInputBorder(),
             ),
+            onChanged: (String value){
+              mail=value;
+            },
           ),
           const SizedBox(height: 10.0),
           TextField(
@@ -30,6 +34,9 @@ class LoginForm extends StatelessWidget {
               hintText: "Enter password",
               border: OutlineInputBorder(),
             ),
+            onChanged: (String value){
+              pwd=value;
+            },
           ),
           const SizedBox(height: 10.0),
           RaisedButton(
@@ -40,7 +47,9 @@ class LoginForm extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: Text("Login"),
-            onPressed: () {},
+            onPressed: () {
+              firebase_service().signIn(mail, pwd);
+            },
           ),
         ],
       ),

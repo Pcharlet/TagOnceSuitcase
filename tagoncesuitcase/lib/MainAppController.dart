@@ -3,14 +3,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Login.dart';
 import 'SignUp.dart';
 
-class AuthThreePage extends StatefulWidget {
-  static final String path = "lib/src/pages/login/auth3.dart";
+class MainAppController extends StatefulWidget {
 
   @override
-  _AuthThreePageState createState() => _AuthThreePageState();
+  _MainAppControllerState createState() => _MainAppControllerState();
 }
 
-class _AuthThreePageState extends State<AuthThreePage> {
+class _MainAppControllerState extends State<MainAppController> {
   bool formVisible;
   int _formsIndex;
 
@@ -27,7 +26,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
         body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(''),
+          image: AssetImage('airport.jpg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -42,7 +41,7 @@ class _AuthThreePageState extends State<AuthThreePage> {
                   child: Column(
                     children: <Widget>[
                       Text(
-                        "Welcome",
+                        "Bienvenue",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
