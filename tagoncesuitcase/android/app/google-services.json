@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "686077856881",
+    "firebase_url": "https://tagoncesuitcase.firebaseio.com",
+    "project_id": "tagoncesuitcase",
+    "storage_bucket": "tagoncesuitcase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686077856881:android:32a557afad533103a41fd0",
+        "android_client_info": {
+          "package_name": "com.example.tagoncesuitcase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686077856881-sg5o4c5orp5va2ucoiv29ed0hk2sbs9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAII7WFyYpth6OP-03FalfQVusr2FClBbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686077856881-sg5o4c5orp5va2ucoiv29ed0hk2sbs9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
