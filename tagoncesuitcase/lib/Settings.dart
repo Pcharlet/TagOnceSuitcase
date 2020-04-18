@@ -51,7 +51,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
         ),
         body: Stack(
           fit: StackFit.expand,
-          children: <Widget>[
+          children: <Widget>[ 
             SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
               child: Column(

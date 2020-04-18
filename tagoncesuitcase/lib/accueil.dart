@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 
 class AccueilController extends StatefulWidget {
   @override
@@ -7,9 +8,16 @@ class AccueilController extends StatefulWidget {
 }
 
 class _AccueilControllerState extends State<AccueilController> {
+
+  BannerAd _bannerAd;
   @override
   void initState() {
     super.initState();
+    FirebaseAdMob.instance
+        .initialize(appId: 'ca-app-pub-7251059686787277/2279637965');
+    _bannerAd = _banner()
+      ..load()
+      ..show();
   }
 
   @override
@@ -40,6 +48,16 @@ class _AccueilControllerState extends State<AccueilController> {
           ],
         ),
       ),
+    );
+  }
+
+  BannerAd _banner() {
+    return BannerAd(
+      adUnitId: BannerAd.testAdUnitId,
+      size: AdSize.smartBanner,
+      listener: (MobileAdEvent event) {
+        print("BannerAd event is $event");
+      },
     );
   }
 }

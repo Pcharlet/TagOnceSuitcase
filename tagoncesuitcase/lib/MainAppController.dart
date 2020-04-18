@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tagoncesuitcase/ResetPassword.dart';
 import 'Login.dart';
 import 'SignUp.dart';
 
@@ -178,7 +179,7 @@ class _MainAppControllerState extends State<MainAppController> {
                           child: AnimatedSwitcher(
                             duration: Duration(milliseconds: 300),
                             child:
-                                _formsIndex == 1 ? LoginForm() : SignupForm(),
+                                (_formsIndex == 1) ? LoginForm() : (_formsIndex == 1)?SignupForm(): ResetPasswordForm(),
                           ),
                         )
                       ],

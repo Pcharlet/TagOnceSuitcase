@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
 import 'package:tagoncesuitcase/modele/firebase_service.dart';
 
-class LoginForm extends StatelessWidget {
+class ResetPasswordForm extends StatelessWidget {
 
 String mail;
-String pwd;
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +27,6 @@ String pwd;
               mail=value;
             },
           ),
-          const SizedBox(height: 10.0),
-          TextField(
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: "Enter password",
-              border: OutlineInputBorder(),
-            ),
-            onChanged: (String value){
-              pwd=value;
-            },
-          ),
           const SizedBox(height: 5.0),
           RaisedButton(
             color: Colors.red,
@@ -47,15 +35,25 @@ String pwd;
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            child: Text("Login"),
+            child: Text("Réinitialiser"),
             onPressed: () {
-              firebase_service().signIn(mail, pwd);
-              versAccueil(context);
+              //envoie du mail
+              firebase_service().emailReset(mail);
+              AlertDialog(
+                title: Text("Réinitialisation du mot de passe"),
+                content: Text("Un Email vous a été envoyé"),
+                actions: <Widget>[okButton(context)],
+              );
             },
           ),
         ],
       ),
     );
   }
+
+  FlatButton okButton(BuildContext context) {
+  return new FlatButton(
+      onPressed: () => Navigator.of(context).pop(), child: new Text("ok"));
+}
 }
 
