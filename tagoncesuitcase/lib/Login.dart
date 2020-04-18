@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tagoncesuitcase/Static/StaticFields.dart';
 import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
 import 'package:tagoncesuitcase/modele/firebase_service.dart';
 
@@ -50,6 +51,7 @@ String pwd;
             child: Text("Login"),
             onPressed: () {
               firebase_service().signIn(mail, pwd);
+              StaticField().setUid(firebase_service().myID().toString());
               versAccueil(context);
             },
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tagoncesuitcase/Static/StaticFields.dart';
 import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
 import 'package:tagoncesuitcase/modele/firebase_service.dart';
 
@@ -59,6 +60,7 @@ class SignupForm extends StatelessWidget {
             child: Text("Signup"),
             onPressed: () {
               firebase_service().createAccount(mail, pwd, name);
+              StaticField().setUid(firebase_service().myID().toString());
               versAccueil(context);
             },
           ),

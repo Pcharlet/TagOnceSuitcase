@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tagoncesuitcase/Static/StaticFields.dart';
 import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
 import 'package:firebase_admob/firebase_admob.dart';
+import 'package:tagoncesuitcase/modele/User.dart';
 
 class AccueilController extends StatefulWidget {
   @override
@@ -22,6 +25,20 @@ class _AccueilControllerState extends State<AccueilController> {
 
   @override
   Widget build(BuildContext context) {
+    return StreamBuilder<DocumentSnapshot>(
+      stream: Firestore.instance.collection("users").document(StaticField.uid).snapshots(),
+      builder: (BuildContext context, AsyncSnapshot snapshot){
+      if(!snapshot.hasData){
+        return CircularProgressIndicator();
+      }else{
+        User user= User(snapshot.data);
+        StaticField().setUser(user);
+        return scalfold(context);
+      }
+      });
+  }
+
+  Widget scalfold(BuildContext context){
     return Scaffold(
       appBar: new AppBar(
         title: new Center(child: new Text("TagOnceSuitCase")),

@@ -47,4 +47,5 @@ class firebase_service{
     await Firestore.instance.collection("users").document(uid).setData(map);
   }
 
+
 }
