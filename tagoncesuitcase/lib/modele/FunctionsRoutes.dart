@@ -1,5 +1,4 @@
-import '../SignUp.dart';
-import '../Login.dart';
+import '../ScanQrCode.dart';
 import 'package:flutter/material.dart';
 import '../accueil.dart';
 import '../MainAppController.dart';
@@ -26,6 +25,13 @@ void versAccueil(BuildContext context) {
 
 verModificationProfil(){
   
+}
+
+versScanScreen(BuildContext context){
+  Navigator.push(context,
+      new MaterialPageRoute(builder: (BuildContext context) {
+    return new ScanScreen();
+  }));
 }
 
 void versSettings(BuildContext context) {
