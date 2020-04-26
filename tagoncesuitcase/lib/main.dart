@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tagoncesuitcase/MainAppController.dart';
+import 'package:tagoncesuitcase/Static/StaticFields.dart';
+import 'package:tagoncesuitcase/accueil.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,6 +25,20 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MainAppController(),
+    );
+  }
+
+  Widget _handleAuth(){
+    return new StreamBuilder<FirebaseUser>(
+        stream: FirebaseAuth.instance.onAuthStateChanged,
+        builder: (BuildContext context, snapshot){
+          if (snapshot.hasData){
+            StaticField().setUid(snapshot.data.uid);
+            return new AccueilController();
+          }else{
+            return new MainAppController();
+          }
+        }
     );
   }
   

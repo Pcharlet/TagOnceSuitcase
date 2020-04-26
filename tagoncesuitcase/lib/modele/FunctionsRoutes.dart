@@ -24,6 +24,10 @@ void versAccueil(BuildContext context) {
   }));
 }
 
+verModificationProfil(){
+  
+}
+
 void versSettings(BuildContext context) {
   Navigator.push(context,
       new MaterialPageRoute(builder: (BuildContext context) {

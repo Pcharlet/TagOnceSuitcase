@@ -179,7 +179,7 @@ class _MainAppControllerState extends State<MainAppController> {
                           child: AnimatedSwitcher(
                             duration: Duration(milliseconds: 300),
                             child:
-                                (_formsIndex == 1) ? LoginForm() : (_formsIndex == 1)?SignupForm(): ResetPasswordForm(),
+                                (_formsIndex == 1) ? LoginForm() : (_formsIndex == 2)?SignupForm(): ResetPasswordForm(),
                           ),
                         )
                       ],

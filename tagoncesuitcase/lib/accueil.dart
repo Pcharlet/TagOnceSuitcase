@@ -12,9 +12,13 @@ class AccueilController extends StatefulWidget {
 
 class _AccueilControllerState extends State<AccueilController> {
 
+  String uid;
   BannerAd _bannerAd;
   @override
   void initState() {
+    setState(() {
+      uid= StaticField.uid;
+    });
     super.initState();
     FirebaseAdMob.instance
         .initialize(appId: 'ca-app-pub-7251059686787277/2279637965');
@@ -26,7 +30,7 @@ class _AccueilControllerState extends State<AccueilController> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot>(
-      stream: Firestore.instance.collection("users").document(StaticField.uid).snapshots(),
+      stream: Firestore.instance.collection("users").document('hWauzwO7tl8n6DJBYhxI').snapshots(),
       builder: (BuildContext context, AsyncSnapshot snapshot){
       if(!snapshot.hasData){
         return CircularProgressIndicator();
@@ -47,7 +51,8 @@ class _AccueilControllerState extends State<AccueilController> {
         child: Column(
           children: <Widget>[
             SizedBox(height: 20),
-            Text("Bonjour, "),
+            Text("Mettre Message, "),
+            SizedBox(height: 20),
             //mettre Profil
             Image(image: AssetImage('pictures/qrCode.png')),
             RaisedButton(

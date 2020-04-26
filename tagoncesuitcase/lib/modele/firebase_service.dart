@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tagoncesuitcase/Static/StaticFields.dart';
 
 
 
@@ -10,9 +11,10 @@ class firebase_service{
 
   logOut() => auth_instance.signOut();
 
-  Future<String> myID() async {
+  void myID() async {
     FirebaseUser user = await auth_instance.currentUser();
-    return user.uid;
+    print(user.uid);
+    StaticField().setUid(user.uid);
   }
 
   void emailReset(String email) async {
@@ -20,31 +22,28 @@ class firebase_service{
   }
 
   Future<FirebaseUser> signIn(String mail, String pwd) async {
-    auth_instance.signInWithEmailAndPassword(
+    await auth_instance.signInWithEmailAndPassword(
         email: mail, password: pwd);
   }
 
   Future<FirebaseUser> createAccount(
     String mail, String pwd, String name) async {
     await auth_instance.createUserWithEmailAndPassword(email: mail, password: pwd);
-
-    String uid = myID().toString();
     //Créer user for BDD
     Map<String, dynamic> map = {
       "name": name,
       "email": mail,
       "imageUrl": " ",
-      "uid": uid,
       "description": " ",
       "dateSubcribe": Timestamp.now(),
     };
 
-    addUser(uid, map);
+    addUser( map);
 
   }
 
-  addUser(String uid, Map<String, dynamic> map) async {
-    await Firestore.instance.collection("users").document(uid).setData(map);
+  addUser( Map<String, dynamic> map) async {
+    await Firestore.instance.collection("users").document().setData(map);
   }
 
 

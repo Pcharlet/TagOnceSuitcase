@@ -18,13 +18,15 @@ class _OrderQrCodeControllerState extends State<OrderQrCodeController> {
       appBar: new AppBar(
         title: new Center(child: new Text("Commander votre TagOnce")),
       ),
-      body: Center(
-          child: Container(
-            margin: EdgeInsets.all(20),
+      body: SingleChildScrollView(
+          child: Center(
+              child: Container(
+        margin: EdgeInsets.all(20),
         child: Column(
           children: <Widget>[
             //mettre Profil
             Image(image: AssetImage('pictures/qrCode.png')),
+            SizedBox(height: 5.0),
             TextFormField(
               decoration: const InputDecoration(
                 border: UnderlineInputBorder(),
@@ -36,7 +38,7 @@ class _OrderQrCodeControllerState extends State<OrderQrCodeController> {
               keyboardType: TextInputType.emailAddress,
               onSaved: (String value) {},
             ),
-            SizedBox(height: 24.0),
+            SizedBox(height: 20.0),
             // "Life story" form.
             TextFormField(
                 decoration: const InputDecoration(
@@ -45,7 +47,6 @@ class _OrderQrCodeControllerState extends State<OrderQrCodeController> {
                   helperText: '',
                 ),
                 onSaved: (String value) {}),
-            SizedBox(height: 15.0),
             // "Life story" form.
             TextFormField(
               decoration: const InputDecoration(
@@ -65,12 +66,12 @@ class _OrderQrCodeControllerState extends State<OrderQrCodeController> {
                 //retourner sur la page accueil
                 //envoyer un mail de confirmation
                 //empêcher de faire plusieurs commande simultané
-                
               },
-            )
+            ),
+            SizedBox(height: 35.0),
           ],
         ),
-      )),
+      ))),
     );
   }
 }

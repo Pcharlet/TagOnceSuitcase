@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tagoncesuitcase/Static/StaticFields.dart';
+import 'package:tagoncesuitcase/modele/FunctionsRoutes.dart';
 
 class SettingsOnePage extends StatefulWidget {
 
@@ -67,7 +69,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         //open edit profile
                       },
                       title: Text(
-                        "John Doe",
+                        "a remplacer " ,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -107,22 +109,10 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                             FontAwesomeIcons.language,
                             color: Colors.purple,
                           ),
-                          title: Text("Change Language"),
+                          title: Text("Change Information Profil"),
                           trailing: Icon(Icons.keyboard_arrow_right),
                           onTap: () {
-                            //open change language
-                          },
-                        ),
-                        _buildDivider(),
-                        ListTile(
-                          leading: Icon(
-                            Icons.location_on,
-                            color: Colors.purple,
-                          ),
-                          title: Text("Change Location"),
-                          trailing: Icon(Icons.keyboard_arrow_right),
-                          onTap: () {
-                            //open change location
+                            verModificationProfil();
                           },
                         ),
                       ],
@@ -130,7 +120,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                   ),
                   const SizedBox(height: 20.0),
                   Text(
-                    "Notification Settings",
+                    "Données accessible",
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,

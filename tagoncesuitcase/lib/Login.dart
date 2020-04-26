@@ -51,7 +51,7 @@ String pwd;
             child: Text("Login"),
             onPressed: () {
               firebase_service().signIn(mail, pwd);
-              StaticField().setUid(firebase_service().myID().toString());
+              firebase_service().myID();
               versAccueil(context);
             },
           ),
